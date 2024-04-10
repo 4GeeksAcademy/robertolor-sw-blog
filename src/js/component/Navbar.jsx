@@ -27,7 +27,7 @@ export const Navbar = () => {
                         <a className="nav-link active bs-dark-text-emphasis" aria-current="page" href="#">Films</a>
                     </li>
                     <li className="nav-item">
-                        <Link className="text-decoration-none" onClick={() => actions.fetchCharacterData()} to={"/Characters"}><span className="nav-link active bs-dark-text-emphasis text-white">Characters</span> </Link>
+                        <Link className="text-decoration-none" to={"/Characters"}><span className="nav-link active bs-dark-text-emphasis text-white">Characters</span> </Link>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#">Planets</a>
