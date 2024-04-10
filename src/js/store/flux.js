@@ -1,43 +1,53 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			generalData: [],
+			characterData: [],
+
 		},
+			
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
+		
+		fetchData: async () => {
+			/* let initialData = []; */
+			const store = getStore();
+			try {
+				let response = await fetch("https://www.swapi.tech/api/");
+				if(!response.ok){throw new Error ("Network response from API was not OK")};
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+				let data = await response.json();
+				console.log(data)
+				
+				/* initialData.push(data); */
+				setStore({...store, generalData: data.result}) 
+				console.log(store.generalData.people)
+				console.log(`${store.generalData.people}`)
+			}catch(error){
+				console.error("Error fetching data:", error);
 			}
+		},
+		
+		fetchCharacterData: async () => {
+			const store = getStore()
+			let currentCharacters = []
+			console.log(`"${store.generalData.people}"`)
+			try{
+				let response = await fetch(`"${store.generalData.people}"`)
+				if (!response.ok){throw new Error("error fetching Character data.")};
+				
+				let data = await response.json();
+				setStore({...store, characterData: data})
+
+				store.characterData.map(elem => currentCharacters.push(elem))
+				console.log(currentCharacters)
+
+
+			}catch(error){
+				console.error("Error fetching data2:", error)
+			}
+
+		}
+
 		}
 	};
 };
