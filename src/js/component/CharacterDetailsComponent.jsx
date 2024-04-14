@@ -25,13 +25,14 @@ export const CharacterDetailsComponent = () => {
 
     return (
         <div className="container mt-3">
-            <div className="card character-det-card d-flex flex-row">
+            <div className="card detail-card d-flex flex-row text-white">
                 <div>
                     <img  className="rounded-start" src={`https://starwars-visualguide.com/assets/img/characters/${uid}.jpg`} alt={`An image of ${person.properties.name}`} />
                 </div> 
                 <div>
+                <h1>{person.properties.name}</h1>
                     <ul>
-                        <li><h1>{person.properties.name}</h1></li>
+                        
                         <li>Homeworld: Tatooine</li>
                         <li>Hair Color: {primeraLetraMayuscula(`${person.properties.hair_color}`)}</li>
                         <li>Skin Color:{primeraLetraMayuscula(`${person.properties.skin_color}`)}</li>
@@ -39,9 +40,8 @@ export const CharacterDetailsComponent = () => {
                         <li>Birth Year:{person.properties.birth_year}</li>
                         <li>Gender:{primeraLetraMayuscula(`${person.properties.gender}`)}</li>
                         <br />
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque officia libero corporis assumenda, praesentium beatae sequi rem dolores nostrum, perspiciatis enim ipsam quos delectus. Atque maxime dolores cumque commodi dolor.</p>                        
-                        {/* Agrega aquí el resto de los elementos de texto */}
                     </ul>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque officia libero corporis assumenda, praesentium beatae sequi rem dolores nostrum, perspiciatis enim ipsam quos delectus. Atque maxime dolores cumque commodi dolor.</p> 
                 </div> 
             </div>
         </div>

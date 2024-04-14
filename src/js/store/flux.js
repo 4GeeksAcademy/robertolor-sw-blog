@@ -22,19 +22,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			fetchData: async () => {
-				/* let initialData = []; */
+
+				/* funcion para transformar la pagian de 10 elementos a 12 */
+				function transformedUrl(originalUrl) {
+					let transformedUrl = `?${originalUrl}page=1&limit=12`
+					return transformedUrl;
+				}
 				const store = getStore();
 				try {
 					let response = await fetch("https://www.swapi.tech/api/");
 					if (!response.ok) { throw new Error("Network response from API was not OK") };
 
 					let dataGeneral = await response.json();
-					/* console.log(dataGeneral) */
-
-					/* initialData.push(data); */
-					setStore({ ...store, generalData: dataGeneral.result })
-					/* console.log(store.generalData.people)
-					console.log(`${store.generalData.people}`) */
+					let transformedPeopleUrl = transformedUrl(dataGeneral.result.people);
+					let transformedPlanestUrl = transformedUrl(dataGeneral.result.planets);
+					let transformedSpeciesUrl = transformedUrl(dataGeneral.result.species);
+					let transformedVehiclesUrl = transformedUrl(dataGeneral.result.vehicles);
+					let transformedStarshipsUrl = transformedUrl(dataGeneral.result.starships);
+					
+				
+ 					setStore({ ...store, generalData: {
+						films: dataGeneral.result.films,
+						people: transformedPeopleUrl,
+						planets: transformedPlanestUrl,
+						species: transformedSpeciesUrl,
+						vehicles: transformedVehiclesUrl,
+						starships: transformedStarshipsUrl }})
+					
 				} catch (error) {
 					console.error("Error fetching data:", error);
 				}

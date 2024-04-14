@@ -35,15 +35,11 @@ export const CharacterCard = () => {
             <div className="row">
                 {store.characterDetails.map(elem => (
                     <div key={elem.uid} className="col-md-3 d-flex justify-content-center">
-                        <div className="card m-3" style={{width: "24rem"}}>
+                        <div className="card m-3 feed-card" style={{width: "24rem"}}>
                             <img className="img-det-card" src={`https://starwars-visualguide.com/assets/img/characters/${elem.uid}.jpg`} alt="..." />
                             <div className="card-body">
                                 <h5 className="card-title">{elem.properties.name}</h5>
-                                <div>
-                                    <p className="card-text">Birth Year: {elem.properties.birth_year}</p>
-                                    <p className="card-text">Height: {elem.properties.height}</p>
-                                    <p className="card-text">Hair Color: {primeraLetraMayuscula(`${elem.properties.hair_color}`)}</p>
-                                </div>
+                                
                                 <Link to={`/characters/${elem.uid}`} className="btn btn-primary mt-3">More Details</Link>
                                 
                             </div>
