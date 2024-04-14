@@ -40,11 +40,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			fetchCharacterData: async () => {
+			fetchCharacterData: async (who) => {
 				const store = getStore();
+				let url = store.generalData.people
+				if (who == 'next') url = store.characterData.next
+				if (who == 'previous') url = store.characterData.previous
+				console.log(url)
 
 				try {
-					let response = await fetch(store.generalData.people);
+					let response = await fetch(url);
 					if (!response.ok) throw new Error("error fetching Character data.");
 
 					let dataCharacter = await response.json();
@@ -52,12 +56,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					// Array de promesas para obtener los detalles de cada personaje
 					let characterDetailPromises = dataCharacter.results.map(async details => {
-						try {
+						try{
 							let resCharDetails = await fetch(details.url);
 							if (!resCharDetails.ok) throw new Error("error fetching Character detail");
 
 							return resCharDetails.json();
-						} catch (error) {
+						}catch (error) {
 							console.error("Error fetching character detail:", error);
 							return null;
 						}

@@ -1,7 +1,28 @@
+body {
+    background-color: black;
+}
+/* NAV BAR */
+
 .logo {
     height: 120px;
 };
 
 .nav-link {
     color:white
+}
+
+/* Det-Cards */
+
+.character-det-card {
+    border: none;
+}
+
+.rounded-start {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-right: 10px; 
+}
+
+ul {
+    list-style: none;
 }

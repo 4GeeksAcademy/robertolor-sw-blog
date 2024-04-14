@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./component/Navbar.jsx"
 import { Main } from "./views/Main.jsx"
 import { People } from "./views/People.jsx";
+import { CharacterDetails } from "./views/CharacterDetails.jsx";
 
 import injectContext from "./store/appContext";
 
@@ -23,7 +24,9 @@ const Layout = () => {
 				<Navbar />
 				<Routes>
 					<Route path="/" element={<Main />} />
-					<Route path="/Characters" element={<People />}/>
+					<Route path="/characters" element={<People />}/>
+					<Route path="/characters/:uid" element={<CharacterDetails />}/>
+
 					<Route path="*" element={<h1>Not found!</h1>} />
 				</Routes>
 			</BrowserRouter>
