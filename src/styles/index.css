@@ -1,20 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
     --CARD-BGCOLOR: #1D1E1F;
 }
 
 body {
+    /* background: url("https://images.unsplash.com/photo-1532793218979-f3365c284b32?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center/cover repeat; */
     background-color: black;
     font-family: "Roboto", sans-serif;
+    color: #fff;
 }
+
 /* NAV BAR */
 
 .logo {
     height: 120px;
-};
+}
+
+
 
 .nav-link {
-    color:white
+    color: white
+}
+
+.nav-2 {
+   
+    background-color: black;
+    border-bottom: 1px solid white;
+}
+
+.nav-link {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.underline {
+
+    height: 2px;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+
+.nav-item:hover .underline {
+    background-color: lightgray;
+    box-shadow: 0px 0px 10px rgba(234, 238, 2, 0.845);
+}
+
+.fav-li {
+    border: none;
+    background-color: transparent;
+    padding: auto;
+    margin: 0 auto;
+}
+.top-nav {
+    z-index: 999;
 }
 
 /* Det-Cards */
@@ -25,6 +66,7 @@ body {
 }
 
 .feed-card {
+    z-index: 0;
     background-color: var(--CARD-BGCOLOR);
     color: white;
     border-top: 5px;
@@ -34,7 +76,7 @@ body {
 .rounded-start {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 ul {
@@ -45,3 +87,23 @@ ul {
 li {
     padding-bottom: 16px;
 }
+
+.logo-container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.dropdown-container {
+    position: absolute;
+    top: 7%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+
+
+/* .fondo-tarjetas {
+     
+    background-color: black;
+    box-shadow: 0px 0px 100px 100px black;
+} */

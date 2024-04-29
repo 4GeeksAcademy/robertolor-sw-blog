@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
+import Background from "../../img/star-background.png";
 
 export const Main = () => {
     const { store, actions } = useContext(Context); 
@@ -9,8 +10,8 @@ export const Main = () => {
     
     return (
         
-        <div>
-            
+        <div className="container">
+            {/* <img src={Background} alt="" /> */}
             <h1>Welcome</h1>
             <p>Use the navbar on top to access the info that interests you the most</p>
 
