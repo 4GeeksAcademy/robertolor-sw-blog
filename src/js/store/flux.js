@@ -23,8 +23,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		actions: {
 
-			/* funcion que lanzamos al context para que cargue PRIMERO fetchData y espere. LUEGO me cargue las datas de cada fetch en paralelo. */
-
 			initialFetchAndWait: async () => {
 				try {
 					await getActions().fetchData();
@@ -40,7 +38,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			fetchData: async () => {
 
-				/* funcion para transformar la pagina de 10 elementos a 12 */
+				
 				function transformedUrl(originalUrl) {
 					return `${originalUrl}?page=1&limit=12`
 						;
@@ -88,7 +86,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let dataCharacter = await response.json();
 					setStore({ ...store, characterData: dataCharacter });
 
-					// Array de promesas para obtener los detalles de cada personaje
+					
 					let characterDetailPromises = dataCharacter.results.map(async details => {
 						try {
 							let resCharDetails = await fetch(details.url);

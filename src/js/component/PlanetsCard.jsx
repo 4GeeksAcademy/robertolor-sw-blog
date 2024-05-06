@@ -29,7 +29,7 @@ export const PlanetsCard = () => {
     }
     const isFavorite = (elem) => {
         
-        return store.favorites.some(favorite => favorite.uid === elem.uid);
+        return store.favorites.some(favorite => favorite._id === elem._id);
     };
 
     return (

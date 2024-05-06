@@ -42,19 +42,19 @@ export const Navbar = () => {
                         <button className="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Favorites
                         </button>
-                        <ul className="dropdown-menu">
+                        <ul className="dropdown-menu" style={{ position: 'absolute', zIndex: 1000, maxHeight: '150px', overflowY: 'auto' }}>
                             {store.favorites.map(elem => (
-                                <li key={elem._id}><button className="fav-btn"onClick={()=> handleNavigation(elem)}>{elem.properties.name}</button></li>
+                                <li key={elem._id}><button className=""onClick={()=> handleNavigation(elem)}>{elem.properties.name}</button></li>
                             ))}
                             
                         </ul>
                     </div>
                 </div>
                 <ul className="nav justify-content-center dark text-white nav-2">
-                    <li className="nav-item bs-dark-text-emphasis">
+                    {/* <li className="nav-item bs-dark-text-emphasis">
                         <a className="nav-link active bs-dark-text-emphasis" aria-current="page" href="#">Films</a>
                         <div className="underline"></div>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link className="nav-link text-white" to={"/characters"}>Characters</Link>
                         <div className="underline"></div>
@@ -71,10 +71,10 @@ export const Navbar = () => {
                     <Link className="nav-link text-white" to={"/starships"}>Starships</Link>
                         <div className="underline"></div>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <a className="nav-link text-white" aria-disabled="true">Vehicles</a>
                         <div className="underline"></div>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </div>

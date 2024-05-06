@@ -4,6 +4,10 @@
     --CARD-BGCOLOR: #1D1E1F;
 }
 
+/* #for-background {
+     background: url("./prueba-de-background.jpeg"); 
+}
+ */
 body {
     /* background: url("https://images.unsplash.com/photo-1532793218979-f3365c284b32?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center center/cover repeat; */
     background-color: black;
@@ -17,6 +21,17 @@ body {
     height: 120px;
 }
 
+.logo-container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.dropdown-container {
+    position: absolute;
+    top: 7%;
+    right: 5%;
+    transform: translateY(-50%);
+}
 
 
 .nav-link {
@@ -88,22 +103,8 @@ li {
     padding-bottom: 16px;
 }
 
-.logo-container {
-    flex-grow: 1;
-    text-align: center;
-}
-
-.dropdown-container {
-    position: absolute;
-    top: 7%;
-    right: 5%;
-    transform: translateY(-50%);
-}
-
-
-
-/* .fondo-tarjetas {
-     
-    background-color: black;
-    box-shadow: 0px 0px 100px 100px black;
-} */
+.fav-btn{
+    background-color: none;
+    border: none;
+    font-size: 2rem;
+};

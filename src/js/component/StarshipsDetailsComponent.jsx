@@ -19,7 +19,7 @@ export const StarshipsDetailsComponent = () => {
 
     
     if (!starships) {
-        return <div>Planet not found </div>; 
+        return <div>Starship not found </div>; 
     }
 
     return (
@@ -33,10 +33,10 @@ export const StarshipsDetailsComponent = () => {
                     <ul>
                     <h1>{starships.properties.name}</h1>
                         <li>Model: {primeraLetraMayuscula(`${starships.properties.model}`)}</li>
-                        <li>Starship Class: {primeraLetraMayuscula(`${species.properties.starship_class}`)}</li>
-                        <li>Manufacturer: {primeraLetraMayuscula(`${species.properties.manufacturer}`)}</li>
-                        <li>Crew: {primeraLetraMayuscula(`${species.properties.crew}`)}</li>
-                        <li>Passengers: {primeraLetraMayuscula(`${species.properties.passenger}`)}</li>
+                        <li>Starship Class: {primeraLetraMayuscula(`${starships.properties.starship_class}`)}</li>
+                        <li>Manufacturer: {primeraLetraMayuscula(`${starships.properties.manufacturer}`)}</li>
+                        <li>Crew: {primeraLetraMayuscula(`${starships.properties.crew}`)}</li>
+                        <li>Passengers: {primeraLetraMayuscula(`${starships.properties.passenger}`)}</li>
                         <br />
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque officia libero corporis assumenda, praesentium beatae sequi rem dolores nostrum, perspiciatis enim ipsam quos delectus. Atque maxime dolores cumque commodi dolor.</p> 
                     </ul>

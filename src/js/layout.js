@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Navbar } from "./component/Navbar.jsx"
@@ -12,6 +12,7 @@ import { SpeciesDetails } from "./views/SpeciesDetails.jsx"
 import { Starships } from "./views/Starships.jsx"
 import { StarshipsDetails } from "./views/StarshipsDetails.jsx"
 import injectContext from "./store/appContext";
+import Background from "../img/star-background.png";
 
 
 
@@ -20,8 +21,16 @@ const Layout = () => {
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
+	const [test, setTest] = useState(
+        {
+        backgroundImage: `url(${Background})`,
+        backgroundPosition: 'center',
+        backgroundRepeat: 'repeat'
+        }
+    )
+
 	return (
-		<div>
+		<div style={test}>
 			<BrowserRouter basename={basename}>
 				<Navbar />
 				<Routes>

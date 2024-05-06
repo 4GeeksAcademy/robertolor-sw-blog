@@ -23,9 +23,13 @@ export const SpeciesCard = () => {
         who = "previous"
         actions.fetchSpeciesData(who)
     }
+    const handleFavorite = (elem) => {
+        actions.handleFavorites(elem)
+
+    }
     const isFavorite = (elem) => {
         
-        return store.favorites.some(favorite => favorite.uid === elem.uid);
+        return store.favorites.some(favorite => favorite._id === elem._id);
     };
     
     return (
@@ -37,7 +41,7 @@ export const SpeciesCard = () => {
             </div>
             <div className="row">
                 {store.speciesDetails.map(elem => (
-                    <div key={elem.uid} className="col-md-3 d-flex justify-content-center">
+                    <div key={elem._id} className="col-md-3 d-flex justify-content-center">
                         <div className="card m-3 feed-card" style={{width: "24rem"}}>
                             <img className="img-det-card" src={`https://starwars-visualguide.com/assets/img/species/${elem.uid}.jpg`} alt="..." />
                             <div className="card-body">

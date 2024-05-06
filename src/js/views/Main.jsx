@@ -1,6 +1,6 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import Background from "../../img/star-background.png";
+
 
 export const Main = () => {
     const { store, actions } = useContext(Context); 
